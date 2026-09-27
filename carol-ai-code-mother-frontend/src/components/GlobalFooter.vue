@@ -1,31 +1,37 @@
-<script setup lang="ts">
-// 版权信息配置：可在此集中维护版权文案与跳转链接
-const copyrightText = '编程导航原创项目 by 程序员Carol'
-const copyrightLink = 'https://github.com/carolxiba'
-</script>
-
 <template>
-  <div class="global-footer">
-    <a :href="copyrightLink" target="_blank" rel="noopener noreferrer">
-      {{ copyrightText }}
-    </a>
-  </div>
+  <a-layout-footer class="footer">
+    <div class="footer-content">
+      <p class="copyright">
+        <a
+          href="https://www.codefather.cn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="author-link"
+        >
+          编程导航原创项目 by 程序员鱼皮
+        </a>
+      </p>
+    </div>
+  </a-layout-footer>
 </template>
 
+<script setup lang="ts">
+// 无需额外的响应式数据
+</script>
+
 <style scoped>
-.global-footer {
+.footer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
   text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.copyright {
+  margin: 0;
+  color: #666;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
-}
-
-.global-footer a {
-  color: rgba(0, 0, 0, 0.45);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.global-footer a:hover {
-  color: #1677ff;
 }
 </style>
