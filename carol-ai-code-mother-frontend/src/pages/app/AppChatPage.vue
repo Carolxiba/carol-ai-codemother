@@ -168,6 +168,9 @@ const route = useRoute()
 const router = useRouter()
 const loginUserStore = useLoginUserStore()
 
+// SSE 流式内容合并更新的固定时间窗口（毫秒）
+const STREAM_UPDATE_INTERVAL_MS = 100
+
 // 应用信息
 const appInfo = ref<API.AppVO>()
 const appId = ref<string>()
@@ -324,6 +327,26 @@ const generateCode = async (userMessage: string, aiMessageIndex: number) => {
     })
 
     let fullContent = ''
+    let streamFlushTimer: ReturnType<typeof setTimeout> | null = null
+    let hasStreamError = false
+
+    // 将窗口内累积的内容一次性写入界面，避免每个 SSE 事件都触发响应式更新
+    const flushStreamContent = () => {
+      if (streamFlushTimer !== null) {
+        clearTimeout(streamFlushTimer)
+        streamFlushTimer = null
+      }
+      if (hasStreamError) return
+      messages.value[aiMessageIndex].content = fullContent
+      messages.value[aiMessageIndex].loading = false
+      scrollToBottom()
+    }
+
+    // 固定时间窗口内的多个 SSE 事件合并为一次更新
+    const scheduleStreamFlush = () => {
+      if (streamCompleted || streamFlushTimer !== null) return
+      streamFlushTimer = setTimeout(flushStreamContent, STREAM_UPDATE_INTERVAL_MS)
+    }
 
     // 处理接收到的消息
     eventSource.onmessage = function (event) {
@@ -334,15 +357,18 @@ const generateCode = async (userMessage: string, aiMessageIndex: number) => {
         const parsed = JSON.parse(event.data)
         const content = parsed.d
 
-        // 拼接内容
+        // 仅累积内容，等待固定时间窗口统一刷新
         if (content !== undefined && content !== null) {
           fullContent += content
-          messages.value[aiMessageIndex].content = fullContent
-          messages.value[aiMessageIndex].loading = false
-          scrollToBottom()
+          scheduleStreamFlush()
         }
       } catch (error) {
         console.error('解析消息失败:', error)
+        hasStreamError = true
+        if (streamFlushTimer !== null) {
+          clearTimeout(streamFlushTimer)
+          streamFlushTimer = null
+        }
         handleError(error, aiMessageIndex)
       }
     }
@@ -352,6 +378,8 @@ const generateCode = async (userMessage: string, aiMessageIndex: number) => {
       if (streamCompleted) return
 
       streamCompleted = true
+      // 立即冲刷剩余缓冲内容，确保最终结果完整
+      flushStreamContent()
       isGenerating.value = false
       eventSource?.close()
 
@@ -368,6 +396,7 @@ const generateCode = async (userMessage: string, aiMessageIndex: number) => {
       // 检查是否是正常的连接关闭
       if (eventSource?.readyState === EventSource.CONNECTING) {
         streamCompleted = true
+        flushStreamContent()
         isGenerating.value = false
         eventSource?.close()
 
@@ -376,6 +405,11 @@ const generateCode = async (userMessage: string, aiMessageIndex: number) => {
           updatePreview()
         }, 1000)
       } else {
+        hasStreamError = true
+        if (streamFlushTimer !== null) {
+          clearTimeout(streamFlushTimer)
+          streamFlushTimer = null
+        }
         handleError(new Error('SSE连接错误'), aiMessageIndex)
       }
     }
