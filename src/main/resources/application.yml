@@ -1,6 +1,14 @@
 spring:
   application:
     name: carol-ai-code-mother
+  #redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      ttl: 3600
+      database: 0
   # mysql
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -29,19 +37,19 @@ langchain4j:
     chat-model:
       base-url: https://api.deepseek.com
       api-key: ${ai.deepseek.api-key}
-      model-name: deepseek-v4-pro
+      model-name: deepseek-flash
       log-requests: true
       log-responses: true
-#      max-tokens: 8192
+      max-tokens: 8192
       #      strict-json-schema: true
       response-format: json_object
     streaming-chat-model:
       base-url: https://api.deepseek.com
       api-key: ${ai.deepseek.api-key}
-      model-name: deepseek-v4-pro
+      model-name: deepseek-flash
       log-requests: true
       log-responses: true
-#      max-tokens: 8192
+      max-tokens: 8192
       #strict-json-schema: true
 #      response-format: json_object
 
