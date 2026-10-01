@@ -1,4 +1,9 @@
 spring:
+  #session配置
+  session:
+    store-type: redis
+    #30天过期
+    timeout: 2592000
   application:
     name: carol-ai-code-mother
   #redis
@@ -21,6 +26,10 @@ server:
   port: 8123
   servlet:
     context-path: /api
+    # cookie30天过期
+    session:
+      cookie:
+        max-age: 2592000
 # springdoc-openapi
 springdoc:
   group-configs:
