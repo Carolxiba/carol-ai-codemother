@@ -61,4 +61,12 @@ langchain4j:
       max-tokens: 8192
       #strict-json-schema: true
 #      response-format: json_object
+# 添加 COS 对象存储配置（需要从腾讯云获取）
+cos:
+  client:
+    host: ${tencent.host}
+    secretId: ${tencent.secretId}
+    secretKey: ${tencent.secretKey}
+    region: ${tencent.region}
+    bucket: ${tencent.bucket}
 
