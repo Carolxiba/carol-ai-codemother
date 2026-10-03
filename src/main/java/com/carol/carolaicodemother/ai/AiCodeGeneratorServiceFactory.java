@@ -1,6 +1,6 @@
 package com.carol.carolaicodemother.ai;
 
-import com.carol.carolaicodemother.ai.tools.FileWriteTool;
+import com.carol.carolaicodemother.ai.tools.*;
 import com.carol.carolaicodemother.exception.BusinessException;
 import com.carol.carolaicodemother.exception.ErrorCode;
 import com.carol.carolaicodemother.model.enums.CodeGenTypeEnum;
@@ -35,6 +35,8 @@ public class AiCodeGeneratorServiceFactory {
     private RedisChatMemoryStore redisChatMemoryStore;
     @Resource
     private ChatHistoryService chatHistoryService;
+    @Resource
+    private ToolManager toolManager;
     /**
      * AI 服务实例缓存
      * 缓存策略：
@@ -80,14 +82,18 @@ public class AiCodeGeneratorServiceFactory {
         // 根据代码生成类型选择不同的模型配置
         return switch (codeGenType) {
             // Vue 项目生成使用推理模型
+
+// Vue 项目生成使用推理模型
             case VUE_PROJECT -> AiServices.builder(AiCodeGeneratorService.class)
                     .streamingChatModel(reasoningStreamingChatModel)
                     .chatMemoryProvider(memoryId -> chatMemory)
-                    .tools(new FileWriteTool())
+                    .tools(toolManager.getAllTools())
                     .hallucinatedToolNameStrategy(toolExecutionRequest -> ToolExecutionResultMessage.from(
                             toolExecutionRequest, "Error: there is no tool called " + toolExecutionRequest.name()
                     ))
                     .build();
+
+
             // HTML 和多文件生成使用默认模型
             case HTML, MULTI_FILE -> AiServices.builder(AiCodeGeneratorService.class)
                     .chatModel(chatModel)

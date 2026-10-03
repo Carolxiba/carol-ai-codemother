@@ -1,5 +1,6 @@
 package com.carol.carolaicodemother.service;
 
+import com.carol.carolaicodemother.model.dto.app.AppAddRequest;
 import com.carol.carolaicodemother.model.dto.app.AppQueryRequest;
 import com.carol.carolaicodemother.model.entity.User;
 import com.carol.carolaicodemother.model.vo.AppVO;
@@ -16,6 +17,8 @@ import java.util.List;
  * @author <a href="https://github.com/carolxiba">程序员Carol</a>
  */
 public interface AppService extends IService<App> {
+
+    Long createApp(AppAddRequest appAddRequest, User loginUser);
 
     /**
      * 获取应用封装类

@@ -51,7 +51,7 @@ langchain4j:
       log-responses: true
       max-tokens: 8192
       #      strict-json-schema: true
-      response-format: json_object
+#      response-format: json_object
     streaming-chat-model:
       base-url: https://api.deepseek.com
       api-key: ${ai.deepseek.api-key}
@@ -69,4 +69,5 @@ cos:
     secretKey: ${tencent.secretKey}
     region: ${tencent.region}
     bucket: ${tencent.bucket}
-
+pexels:
+  api-key: your-api-key
