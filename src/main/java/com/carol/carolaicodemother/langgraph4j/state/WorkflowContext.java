@@ -1,6 +1,7 @@
 package com.carol.carolaicodemother.langgraph4j.state;
 
 import com.carol.carolaicodemother.langgraph4j.model.ImageResource;
+import com.carol.carolaicodemother.langgraph4j.model.QualityResult;
 import com.carol.carolaicodemother.model.enums.CodeGenTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,10 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WorkflowContext implements Serializable {
+    /**
+     * 质量检查结果
+     */
+    private QualityResult qualityResult;
 
     /**
      * WorkflowContext 在 MessagesState 中的存储key
