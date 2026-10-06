@@ -29,7 +29,7 @@
             <a-tag color="green">管理员</a-tag>
           </div>
           <div v-else>
-            <a-tag color="blue">普通用户</a-tag>
+            <a-tag color="orange">普通用户</a-tag>
           </div>
         </template>
         <template v-else-if="column.dataIndex === 'createTime'">

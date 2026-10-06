@@ -272,11 +272,11 @@ const deleteApp = async (id: number | undefined) => {
 .no-cover {
   width: 80px;
   height: 60px;
-  background: #f5f5f5;
+  background: #fdf3e0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
+  color: #b09a7e;
   font-size: 12px;
   border-radius: 4px;
 }

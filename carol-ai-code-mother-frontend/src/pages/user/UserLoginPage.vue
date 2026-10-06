@@ -1,6 +1,6 @@
 <template>
   <div id="userLoginPage">
-    <h2 class="title">鱼皮 AI 应用生成 - 用户登录</h2>
+    <h2 class="title">Carol AI 应用生成 - 用户登录</h2>
     <div class="desc">不写一行代码，生成完整应用</div>
     <a-form :model="formState" name="basic" autocomplete="off" @finish="handleSubmit">
       <a-form-item name="userAccount" :rules="[{ required: true, message: '请输入账号' }]">
@@ -62,10 +62,17 @@ const handleSubmit = async (values: any) => {
 
 <style scoped>
 #userLoginPage {
-  background: white;
-  max-width: 720px;
+  background: #fffdf6;
+  max-width: 400px;
+  min-height: calc(100vh - 240px);
   padding: 24px;
   margin: 24px auto;
+  border-radius: 12px;
+  border: 1px solid rgba(245, 158, 11, 0.12);
+  box-shadow: 0 12px 40px rgba(150, 100, 30, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .title {
@@ -75,13 +82,13 @@ const handleSubmit = async (values: any) => {
 
 .desc {
   text-align: center;
-  color: #bbb;
+  color: #a8947c;
   margin-bottom: 16px;
 }
 
 .tips {
   text-align: right;
-  color: #bbb;
+  color: #a8947c;
   font-size: 13px;
   margin-bottom: 16px;
 }

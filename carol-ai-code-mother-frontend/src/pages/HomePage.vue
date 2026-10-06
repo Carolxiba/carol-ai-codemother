@@ -282,10 +282,18 @@ onMounted(() => {
   padding: 0;
   min-height: 100vh;
   background:
-    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 8%, #e2e8f0 20%, #cbd5e1 100%),
-    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+    linear-gradient(
+      180deg,
+      #fffdf6 0%,
+      #fef7ec 8%,
+      #fdf0dc 20%,
+      #f8e2c0 52%,
+      #f7e9d3 78%,
+      #fdf6ec 100%
+    ),
+    radial-gradient(circle at 20% 80%, rgba(249, 215, 60, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.16) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.12) 0%, transparent 50%);
   position: relative;
   overflow: hidden;
 }
@@ -299,10 +307,10 @@ onMounted(() => {
   right: 0;
   bottom: 0;
   background-image:
-    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(139, 92, 246, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(245, 158, 11, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 158, 11, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(249, 115, 22, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.04) 1px, transparent 1px);
   background-size:
     100px 100px,
     100px 100px,
@@ -323,12 +331,12 @@ onMounted(() => {
   background:
     radial-gradient(
       600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(59, 130, 246, 0.08) 0%,
-      rgba(139, 92, 246, 0.06) 40%,
+      rgba(249, 215, 60, 0.1) 0%,
+      rgba(249, 115, 22, 0.08) 40%,
       transparent 80%
     ),
-    linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.04) 50%, transparent 70%),
-    linear-gradient(-45deg, transparent 30%, rgba(139, 92, 246, 0.04) 50%, transparent 70%);
+    linear-gradient(45deg, transparent 30%, rgba(245, 158, 11, 0.05) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(249, 115, 22, 0.05) 50%, transparent 70%);
   pointer-events: none;
   animation: lightPulse 8s ease-in-out infinite alternate;
 }
@@ -369,7 +377,7 @@ onMounted(() => {
   text-align: center;
   padding: 80px 0 60px;
   margin-bottom: 28px;
-  color: #1e293b;
+  color: #3f2e1e;
   position: relative;
   overflow: hidden;
 }
@@ -382,9 +390,9 @@ onMounted(() => {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(ellipse 800px 400px at center, rgba(59, 130, 246, 0.12) 0%, transparent 70%),
-    linear-gradient(45deg, transparent 30%, rgba(139, 92, 246, 0.05) 50%, transparent 70%),
-    linear-gradient(-45deg, transparent 30%, rgba(16, 185, 129, 0.04) 50%, transparent 70%);
+    radial-gradient(ellipse 800px 400px at center, rgba(249, 215, 60, 0.16) 0%, transparent 70%),
+    linear-gradient(45deg, transparent 30%, rgba(245, 158, 11, 0.06) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(249, 115, 22, 0.05) 50%, transparent 70%);
   animation: heroGlow 10s ease-in-out infinite alternate;
 }
 
@@ -413,7 +421,7 @@ onMounted(() => {
   font-weight: 700;
   margin: 0 0 20px;
   line-height: 1.2;
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #10b981 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ef4444 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -437,7 +445,7 @@ onMounted(() => {
   font-size: 20px;
   margin: 0;
   opacity: 0.8;
-  color: #64748b;
+  color: #8a7560;
   position: relative;
   z-index: 2;
 }
@@ -488,8 +496,8 @@ onMounted(() => {
   padding: 8px 20px;
   height: auto;
   background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  color: #475569;
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  color: #7c6a57;
   backdrop-filter: blur(15px);
   transition: all 0.3s;
   position: relative;
@@ -503,7 +511,7 @@ onMounted(() => {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.12), transparent);
   transition: left 0.5s;
 }
 
@@ -513,10 +521,10 @@ onMounted(() => {
 
 .quick-actions .ant-btn:hover {
   background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(59, 130, 246, 0.4);
-  color: #3b82f6;
+  border-color: rgba(245, 158, 11, 0.45);
+  color: #d97706;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.25);
 }
 
 /* 区域标题 */
@@ -528,7 +536,7 @@ onMounted(() => {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 32px;
-  color: #1e293b;
+  color: #3f2e1e;
 }
 
 /* 我的作品网格 */

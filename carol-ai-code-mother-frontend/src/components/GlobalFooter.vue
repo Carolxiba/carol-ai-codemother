@@ -21,17 +21,17 @@
 
 <style scoped>
 .footer {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 253, 246, 0.9);
   backdrop-filter: blur(10px);
   text-align: center;
   padding: 20px;
   margin-top: 40px;
-  border-top: 1px solid rgba(102, 126, 234, 0.1);
+  border-top: 1px solid rgba(245, 158, 11, 0.14);
 }
 
 .copyright {
   margin: 0;
-  color: #666;
+  color: #8a7560;
   font-size: 14px;
 }
 </style>

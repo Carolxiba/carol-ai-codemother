@@ -4,7 +4,7 @@
     <div class="header-bar">
       <div class="header-left">
         <h1 class="app-name">{{ appInfo?.appName || '网站生成器' }}</h1>
-        <a-tag v-if="appInfo?.codeGenType" color="blue" class="code-gen-type-tag">
+        <a-tag v-if="appInfo?.codeGenType" color="gold" class="code-gen-type-tag">
           {{ formatCodeGenType(appInfo.codeGenType) }}
         </a-tag>
       </div>
@@ -807,7 +807,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   padding: 16px;
-  background: #fdfdfd;
+  background: #fffdf6;
 }
 
 /* 顶部栏 */
@@ -832,7 +832,7 @@ onUnmounted(() => {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #3f2e1e;
 }
 
 .header-right {
@@ -894,13 +894,13 @@ onUnmounted(() => {
 }
 
 .user-message .message-content {
-  background: #1890ff;
+  background: #f59e0b;
   color: white;
 }
 
 .ai-message .message-content {
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #fdf3e0;
+  color: #3f2e1e;
   padding: 8px 12px;
 }
 
@@ -1076,7 +1076,7 @@ onUnmounted(() => {
     font-family: 'Monaco', 'Menlo', monospace;
     font-size: 14px;
     font-weight: 600;
-    color: #007bff;
+    color: #d97706;
   }
 
   .element-id {

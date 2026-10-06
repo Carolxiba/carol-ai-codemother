@@ -43,7 +43,7 @@
           </a-tooltip>
         </template>
         <template v-else-if="column.dataIndex === 'messageType'">
-          <a-tag :color="record.messageType === 'user' ? 'blue' : 'green'">
+          <a-tag :color="record.messageType === 'user' ? 'orange' : 'green'">
             {{ record.messageType === 'user' ? '用户消息' : 'AI消息' }}
           </a-tag>
         </template>
