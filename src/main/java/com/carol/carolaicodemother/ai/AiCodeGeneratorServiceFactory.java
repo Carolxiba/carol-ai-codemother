@@ -1,5 +1,7 @@
 package com.carol.carolaicodemother.ai;
 
+import com.carol.carolaicodemother.ai.guardrail.PromptSafetyInputGuardrail;
+import com.carol.carolaicodemother.ai.guardrail.RetryOutputGuardrail;
 import com.carol.carolaicodemother.ai.tools.*;
 import com.carol.carolaicodemother.exception.BusinessException;
 import com.carol.carolaicodemother.exception.ErrorCode;
@@ -88,6 +90,9 @@ public class AiCodeGeneratorServiceFactory {
                         .hallucinatedToolNameStrategy(toolExecutionRequest -> ToolExecutionResultMessage.from(
                                 toolExecutionRequest, "Error: there is no tool called " + toolExecutionRequest.name()
                         ))
+                        .maxSequentialToolsInvocations(20)
+                        .inputGuardrails(new PromptSafetyInputGuardrail())
+//                        .outputGuardrails(new RetryOutputGuardrail())
                         .build();
             }
             case HTML, MULTI_FILE -> {
@@ -97,6 +102,8 @@ public class AiCodeGeneratorServiceFactory {
                         .chatModel(chatModel)
                         .streamingChatModel(openAiStreamingChatModel)
                         .chatMemory(chatMemory)
+                        .inputGuardrails(new PromptSafetyInputGuardrail())
+//                        .outputGuardrails(new RetryOutputGuardrail())
                         .build();
             }
             default -> throw new BusinessException(ErrorCode.SYSTEM_ERROR,
