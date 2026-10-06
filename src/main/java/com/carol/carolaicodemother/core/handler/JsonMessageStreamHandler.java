@@ -1,14 +1,12 @@
 package com.carol.carolaicodemother.core.handler;
 
-import cn.hutool.core.io.FileUtil;
+
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.carol.carolaicodemother.ai.model.message.*;
 import com.carol.carolaicodemother.ai.tools.BaseTool;
 import com.carol.carolaicodemother.ai.tools.ToolManager;
-import com.carol.carolaicodemother.constant.AppConstant;
-import com.carol.carolaicodemother.core.builder.VueProjectBuilder;
 import com.carol.carolaicodemother.model.entity.User;
 import com.carol.carolaicodemother.model.enums.ChatHistoryMessageTypeEnum;
 import com.carol.carolaicodemother.service.ChatHistoryService;
@@ -31,8 +29,6 @@ import static com.carol.carolaicodemother.ai.model.message.StreamMessageTypeEnum
 public class JsonMessageStreamHandler {
     @Resource
     private ToolManager toolManager;
-    @Resource
-    private VueProjectBuilder vueProjectBuilder;
     /**
      * 处理 TokenStream（VUE_PROJECT）
      * 解析 JSON 消息并重组为完整的响应格式
@@ -60,8 +56,6 @@ public class JsonMessageStreamHandler {
                     // 流式响应完成后，添加 AI 消息到对话历史
                     String aiResponse = chatHistoryStringBuilder.toString();
                     chatHistoryService.addChatMessage(appId, aiResponse, ChatHistoryMessageTypeEnum.AI.getValue(), loginUser.getId());
-                    String projectPath = AppConstant.CODE_OUTPUT_ROOT_DIR + "/vue_project_" + appId;
-                    vueProjectBuilder.buildProject(projectPath);
                 })
                 .doOnError(error -> {
                     // 如果AI回复失败，也要记录错误消息
