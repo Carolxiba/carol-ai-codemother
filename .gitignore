@@ -1,4 +1,5 @@
 ###CUSTOM###
+application-prod.yml
 application-local.yml
 tmp
 
