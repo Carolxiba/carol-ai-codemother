@@ -1,0 +1,37 @@
+/* 全局暖色调样式：与 Logo 小太阳的金黄色系保持一致 */
+
+:root {
+  /* 小太阳主色（取自 logo.png 的太阳金色） */
+  --sun-gold: #f9d73c;
+  /* 主色：琥珀橙 */
+  --sun-amber: #f59e0b;
+  /* 点缀：橙色 */
+  --sun-orange: #f97316;
+  /* 点缀：红橙，用于渐变末端 */
+  --sun-red: #ef4444;
+  /* 暖色文字 */
+  --ink-strong: #3f2e1e;
+  --ink-mid: #7c6a57;
+  --ink-soft: #9a8a78;
+  /* 暖米色背景 */
+  --bg-warm: #fdf6ec;
+  --bg-warm-soft: #fffdf6;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--bg-warm);
+  color: var(--ink-strong);
+}
+
+/* Ant Design 链接、菜单等交互元素统一收敛到暖色 */
+a {
+  color: var(--sun-amber);
+}

@@ -301,9 +301,9 @@ onMounted(() => {
 .cover-preview {
   margin-top: 12px;
   padding: 12px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #f0d9b8;
   border-radius: 6px;
-  background: #fafafa;
+  background: #fdf3e0;
 }
 
 .form-tip {
@@ -313,11 +313,11 @@ onMounted(() => {
 }
 
 :deep(.ant-card-head) {
-  background: #fafafa;
+  background: #fdf3e0;
 }
 
 :deep(.ant-descriptions-item-label) {
-  background: #fafafa;
+  background: #fdf3e0;
   font-weight: 500;
 }
 </style>

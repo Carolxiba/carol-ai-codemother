@@ -133,8 +133,9 @@ const doLogout = async () => {
 
 <style scoped>
 .header {
-  background: #fff;
+  background: #fffdf6;
   padding: 0 24px;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.12);
 }
 
 .header-left {
@@ -151,7 +152,7 @@ const doLogout = async () => {
 .site-title {
   margin: 0;
   font-size: 18px;
-  color: #1890ff;
+  color: #d97706;
 }
 
 .ant-menu-horizontal {

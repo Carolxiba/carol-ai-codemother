@@ -192,7 +192,7 @@ export class VisualEditor {
           style.id = 'edit-mode-styles';
           style.textContent = \`
             .edit-hover {
-              outline: 2px dashed #1890ff !important;
+              outline: 2px dashed #f59e0b !important;
               outline-offset: 2px !important;
               cursor: crosshair !important;
               transition: outline 0.2s ease !important;
@@ -398,7 +398,7 @@ export class VisualEditor {
              position: fixed;
              top: 20px;
              right: 20px;
-             background: #1890ff;
+              background: #f59e0b;
              color: white;
              padding: 12px 16px;
              border-radius: 6px;
