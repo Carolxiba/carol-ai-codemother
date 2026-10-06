@@ -59,6 +59,23 @@ langchain4j:
       log-requests: true
       log-responses: true
       max-tokens: 8192
+    # 推理 AI 模型配置（用于复杂的推理任务）
+    reasoning-streaming-chat-model:
+      base-url: https://api.deepseek.com
+      api-key: ${ai.deepseek.api-key}
+      model-name: deepseek-v4-pro
+      max-tokens: 32768
+      temperature: 0.1
+      log-requests: true
+      log-responses: true
+    # 智能路由 AI 模型配置（用于简单的分类任务）
+    routing-chat-model:
+      base-url: https://api.deepseek.com
+      api-key: ${ai.deepseek.api-key}
+      model-name: deepseek-flash
+      log-requests: true
+      log-responses: true
+
       #strict-json-schema: true
 #      response-format: json_object
 # 添加 COS 对象存储配置（需要从腾讯云获取）
