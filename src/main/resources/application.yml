@@ -70,9 +70,10 @@ langchain4j:
       log-responses: true
     # 智能路由 AI 模型配置（用于简单的分类任务）
     routing-chat-model:
-      base-url: https://api.deepseek.com
-      api-key: ${ai.deepseek.api-key}
-      model-name: deepseek-flash
+      base-url: https://maas.qianwenaiapi.com/compatible-mode/v1
+      api-key: ${dashscope.api-key}
+      model-name: qwen3.8-flash
+      max-token: 100
       log-requests: true
       log-responses: true
 
