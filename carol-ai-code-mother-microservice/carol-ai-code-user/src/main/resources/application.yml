@@ -11,7 +11,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/carol_ai_code_mother
     username: root
-    password: 123456
+    password: 1234
   # redis
   data:
     redis:
@@ -33,9 +33,22 @@ server:
 springdoc:
   group-configs:
     - group: 'default'
-      packages-to-scan: com.carol.carolcodeuser.controller
+      packages-to-scan: com.carol.carolaicodeuser.controller
 # knife4j
 knife4j:
   enable: true
   setting:
     language: zh_cn
+# Dubbo
+dubbo:
+  registry:
+    address: nacos://127.0.0.1:8848?username=nacos&password=nacos
+    register-mode: instance
+  protocol:
+    name: tri
+    port: 50051
+  consumer:
+    timeout: 60000
+  provider:
+    timeout: 60000
+
